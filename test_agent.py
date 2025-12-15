@@ -8,18 +8,24 @@ with open("blackjack_agent.pkl", "rb") as f:
 
 total_winnings = 0
 total_bet = 0
-game = BlackjackGame()
+game = BlackjackGame(num_decks=6, penetration=0.8)
 
 MAX_ITER = 100000
-BETTING_UNITS = 10
+MIN_BET = 10
+MAX_BET = 1000
+SPREAD = 5
+
+BETTING_UNIT = (MAX_BET - MIN_BET) / SPREAD
 
 def get_bet_sizing(true_count):
     '''
-    Returns a bet size based on @true_count
+    Returns a bet size based on @true_count that scales linearly between min and max bets
     
     :param true_count: true count of deck
     '''
-    return max(BETTING_UNITS, BETTING_UNITS * (true_count))
+    if true_count <= 0:
+        return MIN_BET
+    return min(MIN_BET + (BETTING_UNIT * (true_count)), MAX_BET)
 
 # Test our agent MAX_ITER times
 for _ in range(MAX_ITER):
@@ -71,4 +77,3 @@ for _ in range(MAX_ITER):
     game.reset()
 
 print(f"Player Edge over {MAX_ITER} hands: {((total_winnings / total_bet) * 100):.2f}%")
-print(blackjack_agent.get_policy((11, False, 8, False, True, True, 5)))

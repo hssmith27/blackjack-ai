@@ -30,4 +30,8 @@ Run `test_agent.py` to check how well the agent is doing. Run at least 1,000,000
 Check the agent's policy at specific states with `blackjack_agent.get_policy()`.
 
 4. **Adjust other Parameters:**
-Now that you know how to train and test the model, you can try altering other parameters like the number of decks per shoe or the shoe penetration in `game.py`.
+Now that you know how to train and test the model, you can try altering other parameters like the number of decks per shoe or the shoe penetration by adjusting the parameters given to `game`.
+
+## Results
+
+By training the model on around 200,000,000 hands and using a standard bet spreading strategy, it achieves an approximately 1.5% edge on the house given a 6 deck shoe and a penetration level of 0.8

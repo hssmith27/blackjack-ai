@@ -1,7 +1,7 @@
 import pickle
 from blackjack_agent import BlackjackAgent
 
-MAX_ITER = 150000000
+MAX_ITER = 200000000
 agent = BlackjackAgent()
 
 for _ in range(MAX_ITER):
