@@ -19,12 +19,12 @@ To restrict the size of the state, the state only contains the following informa
 
 ## How to Run
 
-1. **Train the Agent**
-Run agent_training.py for a desired number of iterations, you can also modify learning rate and epsilon in blackjack_agent.py. In practice, I've found that a very high epsilon value and a low learning rate with >= 100,000,000
-itreations works well for convergence.
+1. **Train the Agent:**
+Run `agent_training.py` for a desired number of iterations, you can also modify learning rate and epsilon in `blackjack_agent.py`. In practice, I've found that a very high epsilon value and a low learning rate with >= 100,000,000
+iterations works well for convergence.
 
 2. **Test the Agent:**
-Run test_agent.py to check how well the agent is doing. Run at least 1,000,000 iterations to ensure proper performacne in the long-run.
+Run `test_agent.py` to check how well the agent is doing. Run at least 1,000,000 iterations to ensure proper performance in the long-run.
 
-3. **Inspect the Policy**
-Check the agent's policy at specific states with blackjack_agent.get_policy().
+3. **Inspect the Policy:**
+Check the agent's policy at specific states with `blackjack_agent.get_policy()`.
