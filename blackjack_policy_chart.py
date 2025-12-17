@@ -31,8 +31,8 @@ NUM_TO_ACTION = {
 
 def get_player_dealer_totals(is_soft=False):
     '''
-    Returns a tuple where the first index is a list representing the spread of player hand values,
-    and the second index is a list representing the spread of dealer hand values based on @is_soft.
+    Returns a tuple where the first index is a list representing the spread of player hand 
+    values based on @is_soft, and the second index is a list representing the spread of dealer hand values.
     
     :param is_soft: whether the player hand value is soft or not
     '''
