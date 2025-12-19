@@ -11,6 +11,16 @@ class BlackjackGame:
         :param num_decks: Number of decks in the shoe
         :param penetration: What portion of cards are dealt before reshuffling
         '''
+        # Check valid params
+        if not isinstance(num_decks, int):
+            raise TypeError("num_decks must be an int")
+        if num_decks < 1:
+            raise ValueError("num_decks must be at least 1")
+        if not isinstance(penetration, float):
+            raise TypeError("penetration must be a float")
+        if not (0 < penetration < 1):
+            raise ValueError("penetration must be between 0 and 1")
+        
         self.num_decks = num_decks
         self.penetration = penetration
 
