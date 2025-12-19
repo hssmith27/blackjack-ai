@@ -6,14 +6,14 @@ from game import BlackjackGame
 with open("blackjack_agent.pkl", "rb") as f:
     blackjack_agent = pickle.load(f)
 
-total_winnings = 0
-total_bet = 0
-game = BlackjackGame(num_decks=6, penetration=0.8)
-
-MAX_ITER = 100000
+MAX_ITER = 10000000
 MIN_BET = 10
 MAX_BET = 1000
 SPREAD = 5
+
+total_winnings = 0
+total_bet = 0
+game = BlackjackGame(num_decks=6, penetration=0.8)
 
 BETTING_UNIT = (MAX_BET - MIN_BET) / SPREAD
 

@@ -7,7 +7,7 @@ class BlackjackAgent:
     Blackjack AI Agent trained by Q-learning where state is a tuple of the form:
     (player_hand_val, is_soft, dealer_hand_val, can_split, can_double, can_act, true_count)
     '''
-    def __init__(self, alpha=0.05, epsilon=1.0, gamma=0.99):
+    def __init__(self, alpha=0.01, epsilon=1.0, gamma=0.99):
         '''
         :param alpha: Learning rate
         :param epsilon: Random choice probability
@@ -20,7 +20,7 @@ class BlackjackAgent:
         self.game = BlackjackGame()
         self.epsilon_min = 0.01
         self.epsilon_decay = 0.99999997
-        self.alpha_min = 0.001
+        self.alpha_min = 0.0001
         self.alpha_decay = 0.99999997
 
     def get_q_val(self, state, action):
