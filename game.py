@@ -294,6 +294,7 @@ class BlackjackGame:
         # Special value for bust
         if value > 21:
             value = 22
+            
         return value
 
     def check_bust(self):

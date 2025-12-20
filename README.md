@@ -33,4 +33,4 @@ Now that you know how to train and test the model, you can try altering other pa
 
 ## Results
 
-By training the model on around 200,000,000 hands and using a standard bet spreading strategy, it achieves an approximately 1.8% edge on the house given a 6 deck shoe and a penetration level of 0.8
+By training the model on around 200,000,000 hands and using a standard bet spreading strategy, it achieves an approximately 1.8% edge on the house given a 6 deck shoe and a penetration level of 0.8.

@@ -96,7 +96,7 @@ def generate_policy(is_soft=False, is_split=False, true_count=0):
 def generate_heat_map(is_soft, is_split, true_count, policy, labeled_policy):
     '''
     Generates a heat map for optimal player actions based on the player and dealer hand values.
-    Assumes a fixed @true_count value, and that the player doesn't have any pairs.
+    Assumes a fixed @true_count value.
     
     :param is_soft: whether this chart is for soft values
     :param is_split: whether this chart is for split values

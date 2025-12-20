@@ -48,6 +48,7 @@ class BlackjackAgent:
     def get_legal_actions(self, state):
         '''
         Returns legal actions from a given state
+        
         :param state: state we want legal actions from
         '''
         legal_actions = []
