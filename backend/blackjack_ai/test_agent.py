@@ -3,7 +3,7 @@ from blackjack_agent import BlackjackAgent
 from game import BlackjackGame
 
 # Load agent
-with open("blackjack_agent.pkl", "rb") as f:
+with open("backend/blackjack_ai/blackjack_agent.pkl", "rb") as f:
     blackjack_agent = pickle.load(f)
 
 MAX_ITER = 10000000

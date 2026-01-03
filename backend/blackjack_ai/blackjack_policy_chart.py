@@ -6,12 +6,13 @@ import seaborn as sns
 import numpy as np
 import pandas as pd
 
+# Modify these parameters to get different policy charts
 TRUE_COUNT = 0
 IS_SOFT = False
 IS_SPLIT = False
 
 # Load agent
-with open("blackjack_agent.pkl", "rb") as f:
+with open("backend/blackjack_ai/blackjack_agent.pkl", "rb") as f:
     blackjack_agent = pickle.load(f)
 
 ACTION_TO_NUM = {

@@ -2,6 +2,7 @@ import pickle
 from blackjack_agent import BlackjackAgent
 
 MAX_ITER = 500000000
+
 agent = BlackjackAgent()
 
 # Train agent MAX_ITER times
@@ -14,5 +15,5 @@ print(agent.epsilon)
 print(agent.alpha)
 
 # Save agent
-with open("blackjack_agent.pkl", "wb") as f:
+with open("backend/blackjack_ai/blackjack_agent.pkl", "wb") as f:
     pickle.dump(agent, f)
