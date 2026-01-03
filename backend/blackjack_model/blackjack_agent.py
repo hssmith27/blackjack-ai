@@ -1,6 +1,6 @@
 import random
 from collections import defaultdict
-from game import BlackjackGame
+from blackjack_model.game import BlackjackGame
 
 class BlackjackAgent:
     '''

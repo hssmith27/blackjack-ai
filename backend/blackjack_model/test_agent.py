@@ -1,12 +1,12 @@
 import pickle
-from blackjack_agent import BlackjackAgent
-from game import BlackjackGame
+from blackjack_model.blackjack_agent import BlackjackAgent
+from blackjack_model.game import BlackjackGame
 
 # Load agent
-with open("backend/blackjack_ai/blackjack_agent.pkl", "rb") as f:
+with open("blackjack_model/blackjack_agent.pkl", "rb") as f:
     blackjack_agent = pickle.load(f)
 
-MAX_ITER = 10000000
+MAX_ITER = 100000
 MIN_BET = 10
 MAX_BET = 1000
 SPREAD = 5

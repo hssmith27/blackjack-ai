@@ -1,6 +1,6 @@
 import pickle
-from blackjack_agent import BlackjackAgent
-from game import BlackjackGame
+from blackjack_model.blackjack_agent import BlackjackAgent
+from blackjack_model.game import BlackjackGame
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
@@ -12,7 +12,7 @@ IS_SOFT = False
 IS_SPLIT = False
 
 # Load agent
-with open("backend/blackjack_ai/blackjack_agent.pkl", "rb") as f:
+with open("blackjack_model/blackjack_agent.pkl", "rb") as f:
     blackjack_agent = pickle.load(f)
 
 ACTION_TO_NUM = {
