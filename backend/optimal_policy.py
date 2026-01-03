@@ -35,6 +35,29 @@ def convert_to_state(player_cards, dealer_card, true_count):
     :param true_count: the true count of the deck
     '''
     can_double = len(player_cards) == 2
+    dealer_hand_val = calc_card_value(dealer_card)
+    can_split = len(player_cards) == 2 and calc_card_value(player_cards[0]) == calc_card_value(player_cards[1])
+    player_hand_val = 0
+    soft_aces = 0
+
+    # Calculate total player hand value and the number of soft aces
+    for card in player_cards:
+        val = calc_card_value(card)
+        player_hand_val += val
+
+        # Calculate number of soft aces
+        if val == 1:
+            soft_aces += 1
+    
+    # Attempt to use full ace
+    while soft_aces > 0:
+        if player_hand_val + 10 < 22:
+            player_hand_val += 10
+            soft_aces -= 1
+        else:
+            break
+
+    is_soft = bool(soft_aces)
 
     return (player_hand_val, is_soft, dealer_hand_val, can_split, can_double, True, true_count)
 
