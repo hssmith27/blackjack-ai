@@ -6,7 +6,7 @@ from blackjack_model.game import BlackjackGame
 with open("blackjack_model/blackjack_agent.pkl", "rb") as f:
     blackjack_agent = pickle.load(f)
 
-MAX_ITER = 100000
+MAX_ITER = 10000000
 MIN_BET = 10
 MAX_BET = 1000
 SPREAD = 5
