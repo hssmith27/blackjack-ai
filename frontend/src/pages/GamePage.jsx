@@ -79,13 +79,16 @@ function GamePage() {
             </div>
             <div className="game">
                 <div className="board">
+                    <h2>True Count: {trueCount}</h2>
                     <div className="cards dealer-card">
                         {dealerCard && <Card card={dealerCard} />}
+                        {!dealerCard && <Card card={"AS"} hidden={true} />}
                     </div>
                     <div className="cards player-cards">
                         {playerCards.map((card) => (
                             <Card card={card} />    
                         ))}
+                        {playerCards.length === 0 && <Card card={"AS"} hidden={true} />}
                     </div>
                 </div>
     
@@ -94,7 +97,6 @@ function GamePage() {
                     <button onClick={fetchOptimal}>Stand</button>
                     <button>Double Down</button>
                     <button>Split</button>
-                    <p>{trueCount}</p>
                 </div>
             </div>
         </div>

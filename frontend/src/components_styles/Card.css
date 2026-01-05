@@ -24,3 +24,7 @@
 .bottom {
     transform: rotate(180deg);
 }
+
+.transparent {
+    opacity: 0;
+}
