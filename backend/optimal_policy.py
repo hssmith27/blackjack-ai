@@ -11,7 +11,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Read in our trained agent's policy
-with open("backend/blackjack_ai/blackjack_agent.pkl", "rb") as file:
+with open("backend/blackjack_model/blackjack_agent.pkl", "rb") as file:
     model = pickle.load(file)
 
 # Send state information to get policy
