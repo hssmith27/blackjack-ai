@@ -28,7 +28,7 @@ function GamePage() {
 
     // Loads in the shoe from an API
     async function loadShoe() {
-        const response = await fetch('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1');
+        const response = await fetch('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=6');
         const data = await response.json();
         setDeckID(data['deck_id']);
         setNumCards(data['remaining']);
@@ -52,10 +52,13 @@ function GamePage() {
         setPlayerCards(cards.slice(0, 2))
         setDealerCard(cards[2])
 
-        // Reset shoe if less than deck remaining
+        // Reset shoe if less than a deck remaining
         if (data['remaining'] < 52) {
             resetShoe();
         }
+        
+        // Set a random True Count between -5 and 5
+        setTrueCount(Math.floor(Math.random() * (11)) -5)
     }
 
     // Fetches the optimal policy from the backend
@@ -75,19 +78,23 @@ function GamePage() {
                 <h1>{handsPlayed} / {handsCorrect}</h1>
             </div>
             <div className="game">
-                <div className="cards dealer-card">
-                    {dealerCard && <Card card={dealerCard} />}
+                <div className="board">
+                    <div className="cards dealer-card">
+                        {dealerCard && <Card card={dealerCard} />}
+                    </div>
+                    <div className="cards player-cards">
+                        {playerCards.map((card) => (
+                            <Card card={card} />    
+                        ))}
+                    </div>
                 </div>
-                <div className="cards player-cards">
-                    {playerCards.map((card) => (
-                        <Card card={card} />    
-                    ))}
-                </div>
+    
                 <div className="game-actions" >
-                    <button onClick={fetchOptimal}>{modelPolicy}</button>
-                    <button onClick={loadShoe}>Button</button>
-                    <button onClick={resetShoe}>Button</button>
-                    <button onClick={dealCards}>Deal</button>
+                    <button onClick={dealCards}>Hit</button>
+                    <button onClick={fetchOptimal}>Stand</button>
+                    <button>Double Down</button>
+                    <button>Split</button>
+                    <p>{trueCount}</p>
                 </div>
             </div>
         </div>
