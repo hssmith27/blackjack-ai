@@ -8,15 +8,16 @@ function GamePage() {
     const [handsCorrect, setHandsCorrect] = useState(0)
 
     // Store player and dealer cards
-    const [playerCards, setPlayerCards] = useState(["KH", "0C"])
+    const [playerCards, setPlayerCards] = useState(["AH", "0C"])
     const [dealerCard, setDealerCard] = useState("AS")
 
     // Hand Info
-    const [trueCount, setTrueCount] = useState(0)
+    const [trueCount, setTrueCount] = useState(1)
 
     // AI Policy
     const [modelPolicy, setModelPolicy] = useState("")
 
+    // Fetches the optimal policy from the backend
     async function fetchOptimal() {
         const response = await fetch('http://127.0.0.1:5000/get_policy', {
             method: 'POST',
@@ -41,7 +42,7 @@ function GamePage() {
                         <Card card={card} />    
                     ))}
                 </div>
-                <div className="game-actions">
+                <div className="game-actions" >
                     <button onClick={fetchOptimal}>{modelPolicy}</button>
                 </div>
             </div>

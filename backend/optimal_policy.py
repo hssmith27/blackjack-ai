@@ -23,7 +23,6 @@ def get_policy():
     true_count = data.get('true_count', '')
 
     state = convert_to_state(player_cards, dealer_card, true_count)
-    print(state)
 
     return jsonify({"policy": model.get_policy(state)})
 
@@ -47,14 +46,13 @@ def convert_to_state(player_cards, dealer_card, true_count):
         player_hand_val += val
 
         # Calculate number of soft aces
-        if val == 1:
-            player_hand_val -= 10
+        if val == 11:
             soft_aces += 1
     
-    # Attempt to use full ace
-    while soft_aces > 0:
+    # Reduce aces to prevent busting
+    while soft_aces > 0 and player_hand_val > 21:
         if player_hand_val + 10 < 22:
-            player_hand_val += 10
+            player_hand_val -= 10
             soft_aces -= 1
         else:
             break
