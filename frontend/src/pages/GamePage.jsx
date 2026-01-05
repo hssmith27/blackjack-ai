@@ -21,6 +21,10 @@ function GamePage() {
     const [deckID, setDeckID] = useState("")
     const [numCards, setNumCards] = useState(0)
 
+    // Handle actions
+    const [buttonColors, setButtonColors] = useState({})
+    const [actionsAvailable, setActionsAvailable] = useState(false)
+
     // Load shoe when loading the page
     useEffect(() => {
         loadShoe();
@@ -61,6 +65,14 @@ function GamePage() {
         setTrueCount(Math.floor(Math.random() * (11)) -5)
     }
 
+    // Deals cards and resets states
+    async function playHand() {
+        dealCards()
+        setModelPolicy("")
+        setActionsAvailable(true)
+        setButtonColors({})
+    }
+
     // Fetches the optimal policy from the backend
     async function fetchOptimal() {
         const response = await fetch('http://127.0.0.1:5000/get_policy', {
@@ -70,20 +82,45 @@ function GamePage() {
         });
         const data = await response.json();
         setModelPolicy(data['policy']);
+        return data['policy'];
+    }
+
+    // Handle game actions
+    async function handleGameAction(buttonId) {
+        const policy = await fetchOptimal();
+        setActionsAvailable(false);
+        setHandsPlayed(prev => prev + 1);
+        
+        // Set correct answer to green
+        setButtonColors((prev) => ({...prev, [policy]: "green"}));
+
+        // If wrong, set wrong answer to red
+        if (policy != buttonId) {
+            setButtonColors((prev) => ({...prev, [buttonId]: "red"}));
+        }
+        // Update the number of correct decisions
+        else {
+            setHandsCorrect(prev => prev + 1);
+        }
     }
 
     return (
         <div className="game-page">
             <div className="top-bar">
-                <h1>{handsPlayed} / {handsCorrect}</h1>
+                <h1>{handsCorrect}/{handsPlayed} </h1>
             </div>
             <div className="game">
                 <div className="board">
-                    <h2>True Count: {trueCount}</h2>
+                    <div className="game-header">
+                        {!actionsAvailable && <button onClick={playHand}>Deal Cards</button>}
+                        <h2>True Count: {trueCount}</h2>
+                    </div>
+                    <hr />
                     <div className="cards dealer-card">
                         {dealerCard && <Card card={dealerCard} />}
                         {!dealerCard && <Card card={"AS"} hidden={true} />}
                     </div>
+                    <hr />
                     <div className="cards player-cards">
                         {playerCards.map((card) => (
                             <Card card={card} />    
@@ -93,10 +130,10 @@ function GamePage() {
                 </div>
     
                 <div className="game-actions" >
-                    <button onClick={dealCards}>Hit</button>
-                    <button onClick={fetchOptimal}>Stand</button>
-                    <button>Double Down</button>
-                    <button>Split</button>
+                    <button disabled={!actionsAvailable} className={buttonColors.hit} onClick={() => handleGameAction("hit")}>Hit</button>
+                    <button disabled={!actionsAvailable} className={buttonColors.stand} onClick={() => handleGameAction("stand")}>Stand</button>
+                    <button disabled={!actionsAvailable} className={buttonColors.double} onClick={() => handleGameAction("double")}>Double Down</button>
+                    <button disabled={!actionsAvailable} className={buttonColors.split} onClick={() => handleGameAction("split")}>Split</button>
                 </div>
             </div>
         </div>

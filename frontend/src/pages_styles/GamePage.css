@@ -40,13 +40,51 @@
 }
 
 .board {
+    border: 0.2rem solid black;
+}
+
+.game-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.game-header button {
+    position: absolute;
+    left: 0;
+    padding: 1rem;
+    margin: 0.5rem;
+    margin-top: 1rem;
+}
+
+.game-header h2 {
+    color: white;
+}
+
+.board {
     background-image: url('../assets/green-background.png');
     width: 50%;
     border-radius: 1rem;
     margin: 1rem;
 }
 
+hr {
+    border: none;
+    background-color: black;
+    height: 0.2rem;
+}
+
 .game-actions button {
     width: 8rem;
     height: 4rem;
+    color: black;
+}
+
+button.green {
+    background-color: green;
+}
+
+button.red {
+    background-color: red;
 }
