@@ -7,8 +7,10 @@ This project started with the goal of generating an AI-generated policy for Blac
 ## Project Overview
 
 While Blackjack isn't as complicated as a game like chess, it still presents numerous challenges for reinforcement learning due to:
+
 * Large state space
 * Random card draws
+
 To handle these issues, I carefully reduced the state space and adjusted parameters to train the model on numerous iterations, reducing the impact of random card draws.
 
 ## How to Run
