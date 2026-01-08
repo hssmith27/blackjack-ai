@@ -33,6 +33,6 @@ While the AI model isn't 100% accurate, its policy is effective enough to genera
 
 ## Future Improvements
 * Add login / registration to allow players to track their performance across sessions
-* Add additional parameters to let players choose what conditions they want to practice in (ex: dealer standing on soft 17)
+* Add additional parameters to let players choose what conditions they want to practice in (ex: dealer hitting on soft 17)
 * Further improve the model's training process to make it converge closer to the calculated optimal policy
 * Focus on showing users more difficult situations, rather than just any situtation that can be generated
