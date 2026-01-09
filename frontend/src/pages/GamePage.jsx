@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Card from '../components/Card.jsx'
 import '../pages_styles/GamePage.css'
-import blackjackLogo from "../assets/blackjack_logo.png"
+import blackjackLogo from '../assets/blackjack_logo.png'
 
 function GamePage() {
     // Track accuracy
