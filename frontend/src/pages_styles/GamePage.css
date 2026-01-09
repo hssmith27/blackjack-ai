@@ -79,6 +79,8 @@ hr {
     width: 8rem;
     height: 4rem;
     color: black;
+    border-radius: 1rem;
+    margin: 0.2rem;
 }
 
 button.green {

@@ -51,7 +51,6 @@ def validate_card(card):
     if card[1] not in ["H", "D", "C", "S"]:
         raise ValueError("Invalid suit")
 
-
 def validate_input(player_cards, dealer_card, true_count):
     '''
     Raises an error if given input is invalid
@@ -84,7 +83,7 @@ def convert_to_state(player_cards, dealer_card, true_count):
     :param true_count: the true count of the deck
     '''
     validate_input(player_cards, dealer_card, true_count)
-    
+
     can_double = len(player_cards) == 2
     dealer_hand_val = calc_card_value(dealer_card)
     can_split = len(player_cards) == 2 and calc_card_value(player_cards[0]) == calc_card_value(player_cards[1])
