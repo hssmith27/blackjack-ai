@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Card from '../components/Card.jsx'
 import '../pages_styles/GamePage.css'
+import blackjackLogo from "../assets/blackjack_logo.png"
 
 function GamePage() {
     // Track accuracy
@@ -107,6 +108,7 @@ function GamePage() {
     return (
         <div className="game-page">
             <div className="top-bar">
+                <img className="logo" src={blackjackLogo}/>
                 <h1>{handsCorrect}/{handsPlayed} </h1>
             </div>
             <div className="game">
