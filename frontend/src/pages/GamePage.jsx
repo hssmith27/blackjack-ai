@@ -118,11 +118,13 @@ function GamePage() {
                         <h2>True Count: {trueCount}</h2>
                     </div>
                     <hr />
+                    <h1 className="title">DEALER</h1>
                     <div className="cards dealer-card">
                         {dealerCard && <Card card={dealerCard} />}
                         {!dealerCard && <Card card={"AS"} hidden={true} />}
                     </div>
                     <hr />
+                    <h1 className="title">PLAYER</h1>
                     <div className="cards player-cards">
                         {playerCards.map((card) => (
                             <Card card={card} />    
